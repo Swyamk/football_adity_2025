@@ -1,91 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Football SIG Recruitment</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            background-color: #111;
-            padding: 30px;
-            max-width: 550px;
-            text-align: center;
-            border-radius: 12px;
-            color: white;
-        }
-        .title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #ff2e5f;
-            margin-bottom: 10px;
-        }
-        .subtitle {
-            font-size: 20px;
-            font-weight: bold;
-            color: #ff2e5f;
-            margin-bottom: 20px;
-        }
-        .description {
-            font-size: 14px;
-            color: #ddd;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        .dates {
-            font-size: 14px;
-            margin-bottom: 5px;
-        }
-        .dates b {
-            color: white;
-        }
-        .note {
-            font-size: 13px;
-            color: #ccc;
-            margin-bottom: 20px;
-        }
-        .register-btn {
-            background-color: #ff2e5f;
-            color: white;
-            padding: 14px 28px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 8px;
-            display: inline-block;
-            font-size: 16px;
-        }
-        .footer {
-            font-size: 12px;
-            color: #aaa;
-            margin-top: 20px;
-        }
-        .emoji {
-            margin-right: 5px;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Football SIG Recruitment</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background:
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+        url('https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 16px;
+      padding: 40px 50px;
+      max-width: 600px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 0 25px rgba(0,0,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .container:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 35px rgba(0,0,0,0.6);
+    }
+
+    .title {
+      font-size: 30px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    .subtitle {
+      font-size: 22px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 20px;
+      color: #00ff88;
+    }
+
+    .description {
+      font-size: 15px;
+      color: #eaeaea;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .dates {
+      font-size: 15px;
+      margin-bottom: 10px;
+      color: #f0f0f0;
+    }
+
+    .note {
+      font-size: 14px;
+      color: #ccc;
+      margin-bottom: 25px;
+    }
+
+    .register-btn {
+      background: #00ff88;
+      color: #000;
+      padding: 14px 36px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      font-size: 16px;
+      display: inline-block;
+      box-shadow: 0 0 20px rgba(0,255,136,0.4);
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .register-btn:hover {
+      background: #fff;
+      box-shadow: 0 0 30px rgba(255,255,255,0.5);
+      transform: scale(1.05);
+    }
+
+    .footer {
+      font-size: 13px;
+      color: #aaa;
+      margin-top: 25px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 30px 25px;
+      }
+      .title {
+        font-size: 24px;
+      }
+      .subtitle {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <div class="title">⚽ Football SIG is Taking Over!</div>
-        <div class="subtitle">WE ARE RECRUITING!</div>
-        <div class="description">
-            Your campus football revolution starts now. Be part of the team that plans, manages, and executes football events at GITAM University.
-        </div>
-        <div class="dates">📅 <b>Registration Dates:</b> 9th – 14th August</div>
-        <div class="note">No late entries — don’t miss your shot!</div>
-        <a href="https://docs.google.com/forms/d/1uy0KXGfppJFMIBZSSha2hwhTjBk8tLLtKBc46PK00Nc/viewform?ts=6895ce4f&edit_requested=true" class="register-btn" target="_blank">
-            REGISTER NOW
-        </a>
-        <div class="footer">
-            Football SIG • Directorate of Sports • GITAM University
-        </div>
+  <div class="container">
+    <div class="title">⚽ Football SIG is Taking Over!</div>
+    <div class="subtitle">WE ARE RECRUITING!</div>
+    <div class="description">
+      Ready to bring your football passion to life? Join the Football SIG at GITAM and be part of the team that plans, manages and runs the most thrilling football events on campus.
     </div>
+    <div class="dates">📅 <b>Registration:</b> 9th – 14th August</div>
+    <div class="note">⏳ No late entries — take your shot before the whistle blows!</div>
+    <a href="https://docs.google.com/forms/d/1uy0KXGfppJFMIBZSSha2hwhTjBk8tLLtKBc46PK00Nc/viewform?ts=6895ce4f&edit_requested=true" class="register-btn" target="_blank">
+      REGISTER NOW
+    </a>
+    <div class="footer">
+      Football SIG • Directorate of Sports • GITAM University
+    </div>
+  </div>
 </body>
 </html>
