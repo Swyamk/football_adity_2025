@@ -1,221 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Football SIG Recruitment</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root{
-            --bg1:#050406;
-            --bg2:black;
-            --accent1:#ff2e5f;
-            --accent2:#7a00ff;
-            --card:#0f1116cc;
-            --muted:#cfcfd7;
+            --bg1:#040106;
+            --bg2:#071028;
+            --accent1:#ff3b6b;
+            --accent2:#7a3bff;
+            --muted:#d6dbe6;
+            --glass: rgba(255,255,255,0.04);
+            --glass-2: rgba(255,255,255,0.02);
+            --card-grad: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015));
         }
 
         *{box-sizing:border-box}
         html,body{height:100%}
         body{
             margin:0;
-            font-family:"Poppins",system-ui,Segoe UI,Roboto,Helvetica,Arial;
+            font-family:"Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
             background:
-              radial-gradient(800px 400px at 10% 20%, rgba(122,0,255,0.12), transparent 10%),
-              radial-gradient(700px 350px at 90% 80%, rgba(255,46,95,0.08), transparent 10%),
-              linear-gradient(180deg,var(--bg1),var(--bg2));
+                radial-gradient(800px 360px at 12% 18%, rgba(122,0,255,0.08), transparent 12%),
+                radial-gradient(700px 300px at 92% 78%, rgba(255,59,107,0.06), transparent 12%),
+                linear-gradient(180deg,var(--bg1),var(--bg2));
             display:flex;
             align-items:center;
             justify-content:center;
-            padding:32px;
+            padding:36px;
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
-        }
-
-        .container{
-            width:100%;
-            max-width:640px;
-            background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));
-            border-radius:16px;
-            padding:32px;
-            color:var(--muted);
-            box-shadow: 0 10px 40px rgba(2,6,23,0.7), inset 0 1px 0 rgba(255,255,255,0.02);
-            border: 1px solid rgba(255,255,255,0.04);
-            backdrop-filter: blur(6px) saturate(120%);
-            position:relative;
             overflow:hidden;
         }
 
-        /* decorative football SVG faint */
+        /* animated soft particles */
+        .particles{
+            position:fixed;
+            inset:0;
+            pointer-events:none;
+            z-index:0;
+            background:
+                radial-gradient(circle at 5% 20%, rgba(255,255,255,0.02), transparent 6%),
+                radial-gradient(circle at 85% 85%, rgba(122,0,255,0.02), transparent 6%),
+                radial-gradient(circle at 65% 10%, rgba(255,59,107,0.02), transparent 6%),
+                transparent;
+            animation: drift 12s linear infinite;
+            mix-blend-mode:screen;
+        }
+
+        @keyframes drift{
+            0%{transform:translateY(0) translateX(0)}
+            50%{transform:translateY(-18px) translateX(6px)}
+            100%{transform:translateY(0) translateX(0)}
+        }
+
+        .container{
+            position:relative;
+            width:100%;
+            max-width:780px;
+            background: var(--card-grad);
+            border-radius:18px;
+            padding:36px;
+            color:var(--muted);
+            box-shadow: 0 18px 60px rgba(2,6,23,0.75), inset 0 1px 0 rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.04);
+            backdrop-filter: blur(8px) saturate(120%);
+            overflow:hidden;
+            z-index:1;
+            transform: perspective(800px) rotateX(2deg);
+        }
+
+        /* subtle gradient frame */
         .container::before{
+            content:"";
+            position:absolute;
+            inset:-2px;
+            background: linear-gradient(90deg, rgba(255,59,107,0.06), rgba(122,59,255,0.04), rgba(255,255,255,0.02));
+            border-radius:20px;
+            z-index:-1;
+            filter:blur(24px);
+            opacity:0.95;
+            pointer-events:none;
+        }
+
+        /* decorative football faint vector */
+        .container::after{
             content:"";
             position:absolute;
             right:-80px;
             top:-70px;
-            width:300px;
-            height:300px;
-            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.02), transparent 15%),
-                        rgba(255,255,255,0.02);
+            width:380px;
+            height:380px;
+            background:
+                radial-gradient(circle at 35% 25%, rgba(255,255,255,0.02), transparent 14%),
+                linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.004));
             border-radius:50%;
             transform:rotate(18deg);
-            filter: blur(10px);
+            filter: blur(12px) saturate(120%);
             pointer-events:none;
+            mix-blend-mode:screen;
         }
 
         .header{
             display:flex;
+            gap:18px;
             align-items:center;
-            gap:16px;
-            margin-bottom:8px;
+            margin-bottom:10px;
         }
 
         .ball{
-            width:66px;
-            height:66px;
-            flex:0 0 66px;
+            width:78px;
+            height:78px;
+            flex:0 0 78px;
             display:inline-grid;
             place-items:center;
             border-radius:50%;
-            background: radial-gradient(circle at 35% 30%, #fff 10%, #fff0 11%),
-                        linear-gradient(145deg,#fff 0%, #ddd 40%);
-            box-shadow: 0 6px 20px rgba(122,0,255,0.12), inset 0 -6px 18px rgba(0,0,0,0.25);
-            animation: float 4s ease-in-out infinite;
+            background: radial-gradient(circle at 30% 30%, #fff 12%, #fff0 13%),
+                                    linear-gradient(145deg,#fff 0%, #ddd 40%);
+            box-shadow: 0 14px 40px rgba(122,0,255,0.14), inset 0 -8px 24px rgba(0,0,0,0.28);
+            animation: float 4s ease-in-out infinite, rotateBall 9s linear infinite;
+            transform-origin:50% 60%;
         }
 
-        /* simple football pattern using SVG as background */
-        .ball svg{ width:46px; height:46px; display:block; }
+        .ball svg{ width:52px; height:52px; display:block; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45)); }
 
         @keyframes float{
-            0%{transform:translateY(0)}
-            50%{transform:translateY(-6px)}
-            100%{transform:translateY(0)}
+            0%{transform:translateY(0) rotate(0)}
+            25%{transform:translateY(-8px) rotate(-3deg)}
+            50%{transform:translateY(-4px) rotate(2deg)}
+            75%{transform:translateY(-8px) rotate(-1deg)}
+            100%{transform:translateY(0) rotate(0)}
+        }
+        @keyframes rotateBall{
+            0%{transform:translateY(0) rotate(0)}
+            100%{transform:translateY(0) rotate(360deg)}
         }
 
         .title{
-            font-size:20px;
+            font-size:18px;
             font-weight:700;
             color:var(--accent1);
-            text-shadow: 0 6px 24px rgba(122,0,255,0.08), 0 2px 8px rgba(0,0,0,0.6);
-            letter-spacing:0.3px;
+            letter-spacing:0.2px;
+            text-shadow: 0 8px 30px rgba(122,0,255,0.08), 0 3px 12px rgba(0,0,0,0.6);
         }
 
         .subtitle{
-            font-size:28px;
-            font-weight:600;
-            margin:8px 0 14px;
+            font-size:34px;
+            font-weight:800;
+            margin:6px 0 14px;
+            line-height:1;
             background: linear-gradient(90deg,var(--accent1),var(--accent2));
             -webkit-background-clip:text;
             background-clip:text;
             color:transparent;
+            text-transform:uppercase;
+            letter-spacing:1px;
         }
 
         .description{
-            font-size:15px;
-            color:#dbe0e8;
-            line-height:1.6;
+            font-size:15.5px;
+            color:#d7dbe6;
+            line-height:1.7;
             margin-bottom:18px;
+            max-width:100%;
         }
 
         .meta{
             display:flex;
             gap:12px;
             flex-wrap:wrap;
-            margin-bottom:20px;
+            margin-bottom:18px;
         }
 
         .pill{
             display:inline-flex;
             align-items:center;
-            gap:8px;
-            background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-            border:1px solid rgba(255,255,255,0.04);
-            padding:10px 14px;
+            gap:10px;
+            background: linear-gradient(180deg, rgba(255,255,255,0.018), rgba(255,255,255,0.01));
+            border: 1px solid rgba(255,255,255,0.04);
+            padding:12px 16px;
             border-radius:999px;
             font-size:13px;
-            color:#e7e9ee;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            color:#e9edf8;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.45);
+            min-width:170px;
         }
 
-        .pill b{ color:white; font-weight:600; }
+        .pill b{ color:white; font-weight:700; letter-spacing:0.2px; }
 
         .note{
-            font-size:13px;
-            color:#c8cbd3;
+            font-size:13.5px;
+            color:#c9ced6;
             margin-bottom:20px;
         }
 
         .actions{
             display:flex;
-            gap:12px;
+            gap:14px;
             align-items:center;
             justify-content:center;
             flex-wrap:wrap;
+            margin-top:6px;
         }
 
         .register-btn{
             display:inline-flex;
             align-items:center;
-            gap:10px;
-            padding:14px 22px;
+            gap:12px;
+            padding:14px 26px;
             background: linear-gradient(90deg,var(--accent1),var(--accent2));
             color:white;
-            font-weight:700;
-            border-radius:12px;
+            font-weight:800;
+            border-radius:14px;
             text-decoration:none;
-            box-shadow: 0 10px 30px rgba(122,0,255,0.18), 0 6px 12px rgba(0,0,0,0.45);
-            transition: transform .18s ease, box-shadow .18s ease;
+            box-shadow: 0 16px 46px rgba(122,0,255,0.18), 0 8px 20px rgba(0,0,0,0.5);
+            transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s ease;
             font-size:15px;
+            letter-spacing:0.6px;
         }
         .register-btn:hover{
-            transform:translateY(-4px) scale(1.02);
-            box-shadow: 0 18px 48px rgba(122,0,255,0.26);
+            transform:translateY(-6px) scale(1.02);
+            box-shadow: 0 26px 64px rgba(122,0,255,0.28);
         }
-        .register-btn:active{ transform:translateY(-1px) }
+        .register-btn:active{ transform:translateY(-2px) }
 
         .secondary{
-            font-size:13px;
-            color:#dde3f2;
-            opacity:0.9;
+            font-size:13.5px;
+            color:#dfe6ff;
+            opacity:0.95;
+            background: linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.01));
+            padding:10px 14px;
+            border-radius:10px;
+            border: 1px solid rgba(255,255,255,0.03);
         }
 
         .footer{
-            margin-top:22px;
+            margin-top:24px;
             font-size:12px;
-            color:#9fa3ae;
+            color:#98a0b2;
             text-align:center;
         }
 
+        /* small decorative chevron */
+        .arrow {
+            display:inline-block;
+            width:18px;
+            height:18px;
+            border-right:2px solid rgba(255,255,255,0.95);
+            border-bottom:2px solid rgba(255,255,255,0.95);
+            transform:rotate(-45deg);
+            margin-left:4px;
+        }
+
         /* responsive tweaks */
-        @media (max-width:520px){
-            .container{ padding:20px }
-            .subtitle{ font-size:22px }
-            .title{ font-size:18px }
-            .ball{ width:56px; height:56px }
+        @media (max-width:720px){
+            .container{ padding:24px; max-width:92% }
+            .subtitle{ font-size:26px }
+            .title{ font-size:16px }
+            .ball{ width:64px; height:64px; flex:0 0 64px }
+            .register-btn{ padding:12px 20px }
+            .pill{ min-width:unset; padding:10px 12px }
+        }
+        @media (max-width:420px){
+            .header{ gap:12px }
+            .subtitle{ font-size:20px }
+            .description{ font-size:15px }
+            .actions{ flex-direction:column }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="particles" aria-hidden="true"></div>
+
+    <div class="container" role="region" aria-labelledby="hero-title">
         <div class="header">
             <div class="ball" aria-hidden="true">
-                <!-- lightweight football SVG -->
-                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none">
-                    <circle cx="32" cy="32" r="30" fill="#fff" stroke="#000" stroke-opacity="0.06"/>
-                    <path d="M32 8c8 0 15 4 19 10l-9 7-17-1-8-11C20 9 25 8 32 8z" fill="#0b0b0b" opacity="0.9"/>
-                    <path d="M32 56c-8 0-15-4-19-10l9-7 17 1 8 11c-6 3-12 6-15 6z" fill="#0b0b0b" opacity="0.9"/>
-                    <path d="M12 32c0-4 1-8 3-11l10 1 7 9-6 9-14-8z" fill="#0b0b0b" opacity="0.85"/>
-                    <path d="M52 32c0 4-1 8-3 11l-10-1-7-9 6-9 14 8z" fill="#0b0b0b" opacity="0.85"/>
+                <!-- football SVG (stylized) -->
+                <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" aria-hidden="true">
+                    <circle cx="32" cy="32" r="30" fill="#fff" stroke="#000" stroke-opacity="0.05"/>
+                    <path d="M32 8c8 0 15 4 19 10l-9 7-17-1-8-11C20 9 25 8 32 8z" fill="#0b0b0b" opacity="0.95"/>
+                    <path d="M32 56c-8 0-15-4-19-10l9-7 17 1 8 11c-6 3-12 6-15 6z" fill="#0b0b0b" opacity="0.95"/>
+                    <path d="M12 32c0-4 1-8 3-11l10 1 7 9-6 9-14-8z" fill="#0b0b0b" opacity="0.9"/>
+                    <path d="M52 32c0 4-1 8-3 11l-10-1-7-9 6-9 14 8z" fill="#0b0b0b" opacity="0.9"/>
                 </svg>
             </div>
 
             <div style="flex:1">
-                <div class="title">⚽ Football SIG is Taking Over!</div>
-                <div class="subtitle">WE ARE RECRUITING!</div>
+                <div id="hero-title" class="title">⚽ Football SIG is Taking Over!</div>
+                <div class="subtitle">WE ARE RECRUITING</div>
             </div>
         </div>
 
         <div class="description">
-            Your campus football revolution starts now. Join the team that plans, manages and executes all football events at GITAM University — whether you play, organize, or love the sport.
+            Ignite the campus pitch — help plan, organize and run football events at GITAM University. Whether you play, coach, manage or love the game, this is your stage to learn, lead and compete.
         </div>
 
         <div class="meta" role="list">
@@ -223,18 +302,18 @@
             <div class="pill" role="listitem">⏰ <b>Deadline:</b> No late entries</div>
         </div>
 
-        <div class="note">Bring energy, commitment and team spirit — open to all students.</div>
+        <div class="note">Open to all students. Bring energy, commitment and team spirit — no prior experience required.</div>
 
-        <div class="actions">
+        <div class="actions" role="group" aria-label="Call to action">
             <a class="register-btn" href="https://docs.google.com/forms/d/1uy0KXGfppJFMIBZSSha2hwhTjBk8tLLtKBc46PK00Nc/viewform?ts=6895ce4f&edit_requested=true" target="_blank" rel="noopener">
                 REGISTER NOW
+                <span class="arrow" aria-hidden="true"></span>
             </a>
+
             <div class="secondary">Questions? Contact the Directorate of Sports</div>
         </div>
 
-        <div class="footer">
-            Football SIG • Directorate of Sports • GITAM University
-        </div>
+        <div class="footer">Football SIG • Directorate of Sports • GITAM University</div>
     </div>
 </body>
 </html></div>
