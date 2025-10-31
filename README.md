@@ -5,7 +5,7 @@ A clean, responsive football-themed webpage built with HTML, CSS, and JavaScript
 ---
 
 ![Preview](./screenshot.png)  
-*Screenshot: open `index.html` to view the live layout.*
+*Screenshot: open `index.html` to view the live layout here.*
 
 ## 🚀 Live Demo
 View on GitHub Pages: https://<your-username>.github.io/football_adity_2025
