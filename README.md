@@ -1,28 +1,50 @@
-⚽ football_adity_2025
+# ⚽ football_adity_2025
 
-A simple and responsive football-themed webpage built with HTML, CSS, and JavaScript.
+A clean, responsive football-themed webpage built with HTML, CSS, and JavaScript — perfect as a small portfolio piece or starter template.
 
-🚀 Live Demo
+---
 
-View on GitHub Pages
+![Preview](./screenshot.png)  
+*Screenshot: open `index.html` to view the live layout.*
 
-📁 Files
+## 🚀 Live Demo
+View on GitHub Pages: https://<your-username>.github.io/football_adity_2025
 
-index.html – Main webpage
+---
 
-style.css – Styles (if used)
+## ✨ Highlights
+- Responsive layout (mobile → desktop)
+- Modern CSS (flexbox/grid, variables)
+- Lightweight JavaScript for interactivity
+- Easy to customize: colors, fonts, content
 
-script.js – JavaScript (if used)
+## 📁 Project files
+- `index.html` — Main webpage
+- `style.css` — Styles and responsive rules
+- `script.js` — UI interactions (if used)
+- `assets/` — images and icons
 
-📌 Usage
+## 🛠️ Tech
+HTML5 • CSS3 • JavaScript
+
+## 📌 Quick start
+Clone and open locally:
+```bash
 git clone https://github.com/<your-username>/football_adity_2025.git
 cd football_adity_2025
 # Open index.html in your browser
+```
 
-🛠 Tech
+## ⚙️ Tips for customization
+- Change theme color via CSS variables in `:root`.
+- Replace `assets/` images for your own club branding.
+- Add sections (matches, squad, gallery) by copying the existing markup patterns.
 
-HTML5
+## 🤝 Contributing
+Ideas, fixes, and improvements welcome — open a PR or issue.
 
-CSS3
+## 📝 License
+MIT — see LICENSE file for details.
 
-JavaScript
+---
+Made concise and ready for customization. Replace placeholders (`<your-username>`, `screenshot.png`) with your project values.
